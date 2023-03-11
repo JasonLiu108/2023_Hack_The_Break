@@ -48,22 +48,40 @@
 
     <!-- the body of your page goes here -->
     <!-- stuff -->
-    <div class="survey-buttons">
-        <input type="checkbox" class="btn-check" id="Python" autocomplete="off">
-        <label class="btn btn-outline-primary" for="Python">Python</label><br>
-        <input type="checkbox" class="btn-check" id="Java" autocomplete="off">
-        <label class="btn btn-outline-primary" for="Java">Java</label><br>
-        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
-        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
+    <div id="dropdown-menu">
+        <form name="form1" id="form1" action="/action_page.php">
+            Subjects: <select name="subject" id="subject">
+                <option value="" selected="selected">Select subject</option>
+            </select>
+            <br><br>
+            Topics: <select name="topic" id="topic">
+                <option value="" selected="selected">Please select subject first</option>
+            </select>
+            <br><br>
+            Chapters: <select name="chapter" id="chapter">
+                <option value="" selected="selected">Please select topic first</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
     </div>
 
     <div class="survey-buttons">
-        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
-        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
+        <input type="checkbox" class="btn-check" id="JavaScript" autocomplete="off">
+        <label class="btn btn-outline-primary" for="JavaScript">JavaScript</label><br>
+        <input type="checkbox" class="btn-check" id="HTML/CSS" autocomplete="off">
+        <label class="btn btn-outline-primary" for="HTML/CSS">HTML/CSS</label><br>
+        <input type="checkbox" class="btn-check" id="Python" autocomplete="off">
+        <label class="btn btn-outline-primary" for="Python">Python</label><br>
+        <input type="checkbox" class="btn-check" id="SQL" autocomplete="off">
+        <label class="btn btn-outline-primary" for="SQL">SQL</label><br>
+    </div>
+
+    <div class="survey-buttons">
+        <input type="checkbox" class="btn-check" id="TypeScript" autocomplete="off">
+        <label class="btn btn-outline-primary" for="TypeScript">TypeScript</label><br>
+        <input type="checkbox" class="btn-check" id="Java" autocomplete="off">
+        <label class="btn btn-outline-primary" for="Java">Java</label><br>
         <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
         <label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
         <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
@@ -98,9 +116,9 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <!-- <script src="./scripts/firebaseAPI_TEAM99.js"></script> -->
-    <!-- <script src="./scripts/skeleton.js"></script> -->
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/firebaseAPI_2023.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/survey.js"></script>
 
 </body>
 
