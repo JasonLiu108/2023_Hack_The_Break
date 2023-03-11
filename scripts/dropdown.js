@@ -1,10 +1,22 @@
 var subjectObject = {
-  "Front-end": {
+  "Vancouver": {
     HTML: ["Links", "Images", "Tables", "Lists"],
     CSS: ["Borders", "Margins", "Backgrounds", "Float"],
     JavaScript: ["Variables", "Operators", "Functions", "Conditions"],
   },
-  "Back-end": {
+  "Seattle": {
+    PHP: ["Variables", "Strings", "Arrays"],
+    SQL: ["SELECT", "UPDATE", "DELETE"],
+  },
+  "San Francisco": {
+    PHP: ["Variables", "Strings", "Arrays"],
+    SQL: ["SELECT", "UPDATE", "DELETE"],
+  },
+  "New York": {
+    PHP: ["Variables", "Strings", "Arrays"],
+    SQL: ["SELECT", "UPDATE", "DELETE"],
+  },
+  "Hwaii": {
     PHP: ["Variables", "Strings", "Arrays"],
     SQL: ["SELECT", "UPDATE", "DELETE"],
   },
