@@ -1,0 +1,7 @@
+.survey-buttons {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    margin: 5px;
+    padding: 5px;
+}
