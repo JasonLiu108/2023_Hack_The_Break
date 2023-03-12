@@ -8,24 +8,22 @@ jQuery(async function() {
 
     createCityOptions();
 
-    app.auth().onAuthStateChanged((user) => {
+    app.auth().onAuthStateChanged(async (user) => {
         if (user) {
           userID = user.uid;
           updateCTALink(true);
-          selectUsersCity();
+          await selectUsersCity();
         } else {
           updateCTALink(false);
         }
-    });
 
-    city = $('#city').val();
-    let results = await getResultForCity(city);
-    drawChart(results);
+        let city = $('#city').val();
+        drawResultForCity(city);
+    });
 
     $('#city').change(async function() {
       city = $('#city').val();
-      let results = await getResultForCity(city);
-      drawChart(results);
+      drawResultForCity(city);
     });
 });
 
@@ -44,7 +42,7 @@ function updateCTALink(loggedIn) {
 }
 
 function selectUsersCity() {
-  db.collection("users").doc(userID).get().then((doc) => {
+  return db.collection("users").doc(userID).get().then((doc) => {
       if (doc.exists) {
           if (doc.data().city) {
               $(`#city option[value='${doc.data().city}']`).prop('selected', true);
@@ -53,13 +51,17 @@ function selectUsersCity() {
   });
 }
 
-async function getResultForCity(city) {
-  let results = await db.collection("results").doc(city).get().then((doc) => {
+async function drawResultForCity(city) {
+  db.collection("results").doc(city).onSnapshot((doc) => {
       if (doc.exists) {
-        return doc.data();
+        let data = doc.data();
+        let transformedData = transformResults(data);
+        drawChart(transformedData);
       }
   });
+}
 
+function transformResults(results) {
   let resultsArray = [];
   let total = 0; 
   for (const [key, val] of Object.entries(results)) {
@@ -84,11 +86,11 @@ async function getResultForCity(city) {
       return b.data - a.data;
     }
   });
-  // return resultsArray;
+
   return resultsArray.map((element) => {
     element.data = Math.ceil(element.data / total * 100);
     return element;
-  }); 
+  });
 }
 
 function drawChart(results) {
