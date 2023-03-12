@@ -29,11 +29,11 @@
 
 h3 {
     text-align: right;
-    margin-right: 120px;
+    margin-right: 10%;
 }
 
 /* side nav bar */
-< !-- Side navigation --><div class="sidenav"><a href="#">About</a><a href="#">Services</a><a href="#">Clients</a><a href="#">Contact</a></div>< !-- Page content --><div class="main">... </div>Step 2) Add CSS: Example
+< !-- Side navigation --><div class="sidenav"><a href="#">About</a><a href="#">Services</a><a href="#">Clients</a><a href="#">Contact</a></div>< !-- Page content --><div class="main">... </div>
 
 /* The sidebar menu */
 .sidenav {
@@ -48,8 +48,6 @@ h3 {
     top: 0;
     /* Stay at the top */
     left: 0;
-    background-color: #111;
-    /* Black */
     overflow-x: hidden;
     /* Disable horizontal scroll */
     padding-top: 20px;
@@ -60,20 +58,20 @@ h3 {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: black;
     display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: #f1f1f1;
+    background-color: rgb(145, 169, 246);
 }
 
 /* Style page content */
 .main {
     margin-left: 160px;
     /* Same as the width of the sidebar */
-    padding: 0px 10px;
+    padding:
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
