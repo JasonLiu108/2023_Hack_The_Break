@@ -1,4 +1,4 @@
-# Project Title
+# CodeWayfinder
 
 ## 1. Project Description
 With the increase in economic uncertainty following the pandemic, feeling secure in our jobs has become more important than ever. We want reassurance that our hard-earned skills are worth the time and effort, and we want to know what the industry will need in the future.
