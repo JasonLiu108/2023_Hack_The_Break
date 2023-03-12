@@ -20,7 +20,7 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * Firebase
 * Firestore
 * Chart.js (https://www.chartjs.org)
-* OpenMoj (https://openmoji.org)
+* OpenMoji (https://openmoji.org)
 
 
 
