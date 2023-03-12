@@ -11,6 +11,8 @@ jQuery(async function() {
     app.auth().onAuthStateChanged((user) => {
         if (user) {
           userID = user.uid;
+
+          selectUsersCity();
         }
     });
 
@@ -29,6 +31,16 @@ function createCityOptions() {
   for (city in cities) {
       $('#city').append(`<option value="${cities[city]}">${cities[city]}</option>`);
   }
+}
+
+function selectUsersCity() {
+  db.collection("users").doc(userID).get().then((doc) => {
+      if (doc.exists) {
+          if (doc.data().city) {
+              $(`#city option[value='${doc.data().city}']`).prop('selected', true);
+          }
+      }
+  });
 }
 
 async function getResultForCity(city) {
