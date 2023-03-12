@@ -39,7 +39,7 @@ function updateCTALink(loggedIn) {
   if (loggedIn) {
     $('#cta_link').attr('href', `./survey.html`);
   } else {
-    $('#cta_link').attr('href', `./login.html`);
+    $('#cta_linkg').attr('href', `./login.html`);
   }
 }
 
