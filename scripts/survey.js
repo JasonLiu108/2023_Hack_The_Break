@@ -86,15 +86,13 @@ async function submitSurvey() {
         await db
             .collection('results')
             .doc($('#city option:selected').text())
-            .update(results)
-            .catch(e => error = e);
+            .update(results);
         
-        if (removals) {
+        if (Object.keys(removals).length > 0 && previousCity) {
             await db
                 .collection('results')
                 .doc(previousCity)
-                .update(removals)
-                .catch(e => error = e);
+                .update(removals);
         }
 
         await db
@@ -106,8 +104,9 @@ async function submitSurvey() {
                 voted: true
             });
     } catch (e){
-        // alert('Submission failed!', 'error');
-        window.location.href = "index.html";
+        console.log(e)
+        alert('Submission failed!', 'error');
+        // window.location.href = "index.html";
         return;
     }
 
