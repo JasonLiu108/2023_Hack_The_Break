@@ -23,12 +23,12 @@
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <!-------------------------------------------------------->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>  -->
-    <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" /> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-------------------------------------------->
     <!-- Other libraries and styles of your own -->
@@ -61,56 +61,50 @@
         </form>
     </div>
 
-    <div class="container text-center">
-        <div class="row row-cols-2 row-cols">
-            <div class="col">
 
-                <div class="survey-buttons">
-                    <input type="checkbox" class="btn-check" id="JavaScript" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="JavaScript">JavaScript</label><br>
-                    <input type="checkbox" class="btn-check" id="HTML/CSS" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="HTML/CSS">HTML/CSS</label><br>
-                    <input type="checkbox" class="btn-check" id="Python" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="Python">Python</label><br>
-                    <input type="checkbox" class="btn-check" id="SQL" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="SQL">SQL</label><br>
-                </div>
-
-                <div class="survey-buttons">
-                    <input type="checkbox" class="btn-check" id="TypeScript" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="TypeScript">TypeScript</label><br>
-                    <input type="checkbox" class="btn-check" id="Java" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="Java">Java</label><br>
-                    <input type="checkbox" class="btn-check" id="Bash/Shell" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="Bash/Shell">Bash/Shell</label><br>
-                    <input type="checkbox" class="btn-check" id="C#" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="C#">C#</label><br>
-                </div>
-
-                <div class="survey-buttons">
-                    <input type="checkbox" class="btn-check" id="C++" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="C++">C++</label><br>
-                    <input type="checkbox" class="btn-check" id="PHP" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="PHP">PHP</label><br>
-                    <input type="checkbox" class="btn-check" id="C" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="C">C</label><br>
-                    <input type="checkbox" class="btn-check" id="PowerShell" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="PowerShell">PowerShell</label><br>
-                </div>
-
-                <div class="survey-buttons">
-                    <input type="checkbox" class="btn-check" id="Go" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="Go">Go</label><br>
-                    <input type="checkbox" class="btn-check" id="Rust" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="Rust">Rust</label><br>
-                    <input type="checkbox" class="btn-check" id="Kotlin" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="Kotlin">Kotlin</label><br>
-                    <input type="checkbox" class="btn-check" id="Dart" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="Dart">Dart</label><br>
-                </div>
-            </div>
+    <div class="survey-buttons">
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <input type="checkbox" class="btn-check" id="JavaScript" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="JavaScript">JavaScript</label><br>
+            <input type="checkbox" class="btn-check" id="HTML/CSS" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="HTML/CSS">HTML/CSS</label><br>
+            <input type="checkbox" class="btn-check" id="Python" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="Python">Python</label><br>
+            <input type="checkbox" class="btn-check" id="SQL" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="SQL">SQL</label><br>
+        </div>
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <input type="checkbox" class="btn-check" id="TypeScript" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="TypeScript">TypeScript</label><br>
+            <input type="checkbox" class="btn-check" id="Java" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="Java">Java</label><br>
+            <input type="checkbox" class="btn-check" id="Bash/Shell" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="Bash/Shell">Bash/Shell</label><br>
+            <input type="checkbox" class="btn-check" id="C#" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="C#">C#</label><br>
+        </div>
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <input type="checkbox" class="btn-check" id="C++" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="C++">C++</label><br>
+            <input type="checkbox" class="btn-check" id="PHP" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="PHP">PHP</label><br>
+            <input type="checkbox" class="btn-check" id="C" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="C">C</label><br>
+            <input type="checkbox" class="btn-check" id="PowerShell" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="PowerShell">PowerShell</label><br>
+        </div>
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <input type="checkbox" class="btn-check" id="Go" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="Go">Go</label><br>
+            <input type="checkbox" class="btn-check" id="Rust" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="Rust">Rust</label><br>
+            <input type="checkbox" class="btn-check" id="Kotlin" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="Kotlin">Kotlin</label><br>
+            <input type="checkbox" class="btn-check" id="Dart" autocomplete="off">
+            <label class="btn btn-outline-primary btn-lg" for="Dart">Dart</label><br>
         </div>
     </div>
+
     <!-- our own footer goes here-->
     <!-- <nav id="footerPlaceholder"></nav> -->
 
