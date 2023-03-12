@@ -49,43 +49,51 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
 
-    <container id="first">
+    <div class="container" id="first">
         <div class="row">
-            <div class="container">
-
-                <div class="para"> Our website provides statistics on the popularity of programming languages in
-                    specific IT
-                    fields to help users focus on mastering the most in-demand languages for their desired job
-                    or target. <p>
-                </div>
-
-                <div class="col-lg">
-                    <h1> MOST POPULAR PROGRAMMING TECHNOLOGIES </h1>
-                    <form name="form1" id="form1" action="/action_page.php">
-                        Select your city <select name="subject" id="subject">
-                            <option value="" selected="selected">Select your city</option>
-                        </select>
-                        <br><br>
-                    </form>
-                </div>
-                <div class="col-lg">
-                    <h3> Authentication comes here </h3>
-                </div>
-
+            <div class="para" style="margin-top:3%;"> Our website provides statistics on the popularity of programming
+                languages in
+                specific IT
+                fields to help users focus on mastering the most in-demand languages for their desired job
+                or target. <p>
             </div>
         </div>
-        
+    </div>
 
+    <div class="container" id="second">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg">
+                        <h2> MOST POPULAR TECHNOLOGIES </h1>
+                            <br>
+                            <form name="form1" id="form1" action="/action_page.php">
+                                Select your city <select name="subject" id="subject">
+                                    <option value="" selected="selected">Select your city</option>
+                                </select>
+                                <br><br>
+                            </form>
+                    </div>
+
+                    <div class="col-lg">
+                        <h3> Authentication</h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="last">
         <div class="row">
             <div class="container">
                 <div class="row">
                     <div class="col-lg">
-                        <div class="imagy">
-                            <img src="" alt="GRAPH comes here ">
+                        <div class="imagy" style="margin-top:4%;">
                             <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
-                            <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
+                            <div style="width: 1000px;"><canvas id="acquisitions"></canvas></div>
                             <!-- <script type="module" src="dimensions.js"></script> -->
-                            <script type="module" src="./scripts/acquisitions.js"></script>
                         </div>
                     </div>
                     <div class="col-lg">
@@ -94,10 +102,13 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- our own footer goes here-->
+    <div class="container" id="last">
         <nav id="footerPlaceholder"></nav>
-    </container>
+    </div>
+
+
 
 
 
@@ -110,6 +121,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/dropdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="./scripts/acquisitions.js"></script>
 
 </body>
 
