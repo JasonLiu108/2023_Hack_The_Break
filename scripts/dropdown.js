@@ -16,7 +16,7 @@ var subjectObject = {
     PHP: ["Variables", "Strings", "Arrays"],
     SQL: ["SELECT", "UPDATE", "DELETE"],
   },
-  "Hwaii": {
+  "Hawaii": {
     PHP: ["Variables", "Strings", "Arrays"],
     SQL: ["SELECT", "UPDATE", "DELETE"],
   },

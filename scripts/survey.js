@@ -1,14 +1,26 @@
 var subjectObject = {
-    "Front-end": {
-        "HTML": ["Links", "Images", "Tables", "Lists"],
-        "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
-        "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
+    "Vancouver": {
+        HTML: ["Links", "Images", "Tables", "Lists"],
+        CSS: ["Borders", "Margins", "Backgrounds", "Float"],
+        JavaScript: ["Variables", "Operators", "Functions", "Conditions"],
     },
-    "Back-end": {
-        "PHP": ["Variables", "Strings", "Arrays"],
-        "SQL": ["SELECT", "UPDATE", "DELETE"]
-    }
-}
+    "Seattle": {
+        PHP: ["Variables", "Strings", "Arrays"],
+        SQL: ["SELECT", "UPDATE", "DELETE"],
+    },
+    "San Francisco": {
+        PHP: ["Variables", "Strings", "Arrays"],
+        SQL: ["SELECT", "UPDATE", "DELETE"],
+    },
+    "New York": {
+        PHP: ["Variables", "Strings", "Arrays"],
+        SQL: ["SELECT", "UPDATE", "DELETE"],
+    },
+    "Hawaii": {
+        PHP: ["Variables", "Strings", "Arrays"],
+        SQL: ["SELECT", "UPDATE", "DELETE"],
+    },
+};
 window.onload = function () {
     var subjectSel = document.getElementById("subject");
     var topicSel = document.getElementById("topic");
@@ -24,7 +36,7 @@ window.onload = function () {
         for (var y in subjectObject[this.value]) {
             topicSel.options[topicSel.options.length] = new Option(y, y);
         }
-    }
+    };
     topicSel.onchange = function () {
         //empty Chapters dropdown
         chapterSel.length = 1;
@@ -33,5 +45,5 @@ window.onload = function () {
         for (var i = 0; i < z.length; i++) {
             chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
         }
-    }
-} 
+    };
+};
