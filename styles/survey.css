@@ -1,5 +1,6 @@
 *{
     margin-left: 5%;
+    margin-right: 15%;
 }
 
 #dropdown-menu  {
@@ -13,8 +14,8 @@
 
 .survey-buttons {
     display: flex;
-    text-align: center;
-    justify-content: space-evenly;
-    margin: 5px;
-    padding: 5px;
+    /* text-align: center; */
+    /* justify-content: space-evenly; */
+    margin: auto;
+    /* padding: auto; */
 }
