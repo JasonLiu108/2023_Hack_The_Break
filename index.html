@@ -34,7 +34,13 @@
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Tilt+Neon&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/index.css">
+
+    
 
 </head>
 
@@ -52,10 +58,8 @@
     <div class="container" id="first">
         <div class="row">
             <div class="para" style="margin-top:3%;"> Our website provides statistics on the popularity of programming
-                languages in
-                specific IT
-                fields to help users focus on mastering the most in-demand languages for their desired job
-                or target. <p>
+                languages to help you focus on mastering the most in-demand languages for your desired job in your city.
+                <img src="./images/keyboard.svg" alt="keyboard_emoji" style="width: 5%;"><p>
             </div>
         </div>
     </div>
@@ -64,30 +68,34 @@
         <div class="row">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg">
-                        <h2> MOST POPULAR TECHNOLOGIES </h1>
+                        <h2><strong>MOST POPULAR PROGRAMMING LANGUAGES</strong></h2>
                             <br>
-                            <form name="form1" id="form1" action="/action_page.php" style=" font-size: 20px;">
+                                <form style="font-size: 20px;">
+                                    City:
+                                    <select name="cities" id="city"></select>
+                                </form>
+                            <!-- <form name="form1" id="form1" style=" font-size: 20px;">
                                 Select your city <select name="subject" id="subject" style=" font-size: 20px;">
                                     <option value="" selected="selected">Select your city</option>
                                 </select>
                                 <br><br>
-                            </form>
+                            </form> -->
                     </div>
 
-                    <div class="col-lg" id="loginbutton">
-                        <p style="text-align: right; font-size: 20px; margin-right: -2%;"> Are you a professional
-                            developer?</p>
-                        <a href="./login.html" class="col-lg-auto ">
+                    <!-- <div class="col-lg" id="loginbutton"> -->
+                    <div class="col-lg">
+                        <p style="text-align: center; font-size: 20px; margin-right: -21%;"> Are you a professional
+                            developer? <br>Contribute to the results.</p>
+                            <!-- <a id="cta_link" style = "text-decoration: none;" href = "login.html">Contribute to the results.</a></p> -->
+                        <!-- <a href="./login.html" class="col-lg-auto ">
                             <div class="row">
-                                <blockquote> CONTRIBUTE THE RESULT </blockquote>
+                                <blockquote>CONTRIBUTE</blockquote>
                             </div>
-
-
-                        </a>
+                        </a> -->
+                         <!-- create a buttonm -->
+                         
                     </div>
-
                 </div>
             </div>
         </div>
@@ -100,7 +108,9 @@
                     <div class="col-lg">
                         <div class="imagy" style="margin-top:4%;">
                             <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
-                            <div style="width: 1000px;"><canvas id="acquisitions"></canvas></div>
+                            <div style="width: 800px;">
+                                <canvas id="result-chart" height="180"></canvas>
+                            </div>
                             <!-- <script type="module" src="dimensions.js"></script> -->
                         </div>
                     </div>
@@ -124,7 +134,9 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/dropdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module" src="./scripts/acquisitions.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/constants.js"></script>
+
 
 </body>
 

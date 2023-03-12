@@ -24,7 +24,7 @@ var uiConfig = {
                    voted: false                           // with authenticated user's ID (user.uid)                                 // empty array for bookmark
                   }).then(function () {
                    console.log("New user added to firestore");
-                   window.location.assign("index.html");       //re-direct to main.html after signup
+                   window.location.assign("survey.html");       //direct to survey.html after signup
             }).catch(function (error) {
                    console.log("Error adding new user: " + error);
             });
@@ -41,7 +41,7 @@ var uiConfig = {
     },
       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
-      signInSuccessUrl: "index.html",
+      signInSuccessUrl: "survey.html",
       signInOptions: [
           firebase.auth.EmailAuthProvider.PROVIDER_ID,
       ],

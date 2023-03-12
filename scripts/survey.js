@@ -1,4 +1,6 @@
 let userID;
+let previousSubmission = [];
+let previousCity = null;
 
 jQuery(async function() {
     // On page load
@@ -14,6 +16,10 @@ jQuery(async function() {
     });
 
     createCityOptions();
+
+    $('.tech-form').on('change', function() {
+        toggleSubmitButton();
+    });
 
     // Send data to firestore after user submits
     $('#survey-submit').on('click', async function() {
@@ -33,23 +39,48 @@ function loadExistingSubmission() {
             if (doc.data().results) {
                 Object.keys(doc.data().results).forEach((entry) => {
                     $(`[id='${entry}']`).prop('checked', true);
+                    previousSubmission.push(entry);
                 });
             }
 
             if (doc.data().city) {
+                previousCity = doc.data().city
                 $(`#city option[value='${doc.data().city}']`).prop('selected', true);
             }
         }
     });
 }
 
+function toggleSubmitButton() {
+    let anyButtonsChecked = $('.tech-form :checked').length > 0;
+    if (anyButtonsChecked) {
+        $('#survey-submit').prop('disabled', false);
+    } else {
+        $('#survey-submit').prop('disabled', true);
+    }
+    
+}
+
 async function submitSurvey() {
-    let results = {}
+    let results = {};
+    let removals = {};
     $('.tech-form :checked').each(function() {
-        results[$(this).attr('id')] = firebase.firestore.FieldValue.increment(1) // e.g. {Javascript: increment(1)}
+        let tech = $(this).attr('id')
+        if (!previousSubmission.includes(tech)) {
+            // previous submission does not have this item
+            results[tech] = firebase.firestore.FieldValue.increment(1) // e.g. {Javascript: increment(1)}
+        } else if (previousSubmission.length > 0) {
+            // remove item from previousSubmission if it exists, so remaining items in previousSubmissions are ones unselected
+            previousSubmission = previousSubmission.filter(item => item !== tech)
+        }
+    });
+
+    previousSubmission.forEach(tech => {
+        removals[tech] = firebase.firestore.FieldValue.increment(-1)
     });
 
     let error = null;
+
 
     try {
         await db
@@ -58,6 +89,14 @@ async function submitSurvey() {
             .update(results)
             .catch(e => error = e);
         
+        if (removals) {
+            await db
+                .collection('results')
+                .doc(previousCity)
+                .update(removals)
+                .catch(e => error = e);
+        }
+
         await db
             .collection("users")
             .doc(userID)
@@ -67,60 +106,11 @@ async function submitSurvey() {
                 voted: true
             });
     } catch (e){
-        alert('Submission failed!', 'error');
+        // alert('Submission failed!', 'error');
+        window.location.href = "index.html";
         return;
     }
 
     alert('Submission was successful!', 'success');
+    window.location.href = "index.html";
 }
-
-
-// var subjectObject = {
-//     "Vancouver": {
-//         HTML: ["Links", "Images", "Tables", "Lists"],
-//         CSS: ["Borders", "Margins", "Backgrounds", "Float"],
-//         JavaScript: ["Variables", "Operators", "Functions", "Conditions"],
-//     },
-//     "Seattle": {
-//         PHP: ["Variables", "Strings", "Arrays"],
-//         SQL: ["SELECT", "UPDATE", "DELETE"],
-//     },
-//     "San Francisco": {
-//         PHP: ["Variables", "Strings", "Arrays"],
-//         SQL: ["SELECT", "UPDATE", "DELETE"],
-//     },
-//     "New York": {
-//         PHP: ["Variables", "Strings", "Arrays"],
-//         SQL: ["SELECT", "UPDATE", "DELETE"],
-//     },
-//     "Hawaii": {
-//         PHP: ["Variables", "Strings", "Arrays"],
-//         SQL: ["SELECT", "UPDATE", "DELETE"],
-//     },
-// };
-// window.onload = function () {
-//     var subjectSel = document.getElementById("subject");
-//     var topicSel = document.getElementById("topic");
-//     var chapterSel = document.getElementById("chapter");
-//     for (var x in subjectObject) {
-//         subjectSel.options[subjectSel.options.length] = new Option(x, x);
-//     }
-//     subjectSel.onchange = function () {
-//         //empty Chapters- and Topics- dropdowns
-//         chapterSel.length = 1;
-//         topicSel.length = 1;
-//         //display correct values
-//         for (var y in subjectObject[this.value]) {
-//             topicSel.options[topicSel.options.length] = new Option(y, y);
-//         }
-//     };
-//     topicSel.onchange = function () {
-//         //empty Chapters dropdown
-//         chapterSel.length = 1;
-//         //display correct values
-//         var z = subjectObject[subjectSel.value][this.value];
-//         for (var i = 0; i < z.length; i++) {
-//             chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
-//         }
-//     };
-// };
