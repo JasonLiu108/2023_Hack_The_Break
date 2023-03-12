@@ -11,8 +11,10 @@ jQuery(async function() {
     app.auth().onAuthStateChanged((user) => {
         if (user) {
           userID = user.uid;
-
+          updateCTALink(true);
           selectUsersCity();
+        } else {
+          updateCTALink(false);
         }
     });
 
@@ -30,6 +32,14 @@ jQuery(async function() {
 function createCityOptions() {
   for (city in cities) {
       $('#city').append(`<option value="${cities[city]}">${cities[city]}</option>`);
+  }
+}
+
+function updateCTALink(loggedIn) {
+  if (loggedIn) {
+    $('#cta_link').attr('href', `./survey.html`);
+  } else {
+    $('#cta_link').attr('href', `./login.html`);
   }
 }
 
