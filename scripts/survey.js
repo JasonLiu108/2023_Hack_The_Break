@@ -1,32 +1,23 @@
-jQuery(function() {
+let userID;
+
+jQuery(async function() {
     // On page load
     const app = firebase.app();
     const db = app.firestore();
+
+    app.auth().onAuthStateChanged((user) => {
+        if (user) {
+          userID = user.uid;
+
+          loadExistingSubmission();
+        }
+    });
+
     createCityOptions();
 
     // Send data to firestore after user submits
     $('#survey-submit').on('click', async function() {
-        let results = {}
-        $('.tech-form :checked').each(function() {
-            // console.log($(this).val())
-            results[$(this).attr('id')] = firebase.firestore.FieldValue.increment(1) // e.g. {Javascript: increment(1)}
-        });
-
-        // console.log(results)
-
-        await db
-            .collection('results')
-            .doc($('#city option:selected').text())
-            .update(results)
-            .catch(e => console.log(e));
-        
-        alert('Submission was successful!', 'success')
-        let userID = firebase.auth().currentUser.uid
-        db.collection("users").doc(userID).update({     
-            city: $('#city option:selected').text(),
-            results: results,                  
-            voted: true                                    
-        })
+        submitSurvey();
     });
 });
 
@@ -34,6 +25,53 @@ function createCityOptions() {
     for (city in cities) {
         $('#city').append(`<option value="${cities[city]}">${cities[city]}</option>`);
     }
+}
+
+function loadExistingSubmission() {
+    db.collection("users").doc(userID).get().then((doc) => {
+        if (doc.exists) {
+            if (doc.data().results) {
+                Object.keys(doc.data().results).forEach((entry) => {
+                    $(`[id='${entry}']`).prop('checked', true);
+                });
+            }
+
+            if (doc.data().city) {
+                $(`#city option[value='${doc.data().city}']`).prop('selected', true);
+            }
+        }
+    });
+}
+
+async function submitSurvey() {
+    let results = {}
+    $('.tech-form :checked').each(function() {
+        results[$(this).attr('id')] = firebase.firestore.FieldValue.increment(1) // e.g. {Javascript: increment(1)}
+    });
+
+    let error = null;
+
+    try {
+        await db
+            .collection('results')
+            .doc($('#city option:selected').text())
+            .update(results)
+            .catch(e => error = e);
+        
+        await db
+            .collection("users")
+            .doc(userID)
+            .update({
+                city: $('#city option:selected').text(),
+                results: results,
+                voted: true
+            });
+    } catch (e){
+        alert('Submission failed!', 'error');
+        return;
+    }
+
+    alert('Submission was successful!', 'success');
 }
 
 
